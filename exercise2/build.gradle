@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        releaseConsolePrompt {
+            //these values are going to be populated by our console prompt
+            storeFile file("keystore.jks")
+            storePassword ''
+            keyAlias ''
+            keyPassword ''
+        }
+        releaseStoredCredentials {
+            // store the credentials directly in build.gradle
+            // probably not a very good idea
+            storeFile file("keystore.jks")
+            storePassword 'demo1234'
+            keyAlias 'demo'
+            keyPassword 'demo1234'
+        }
+        releaseExternalCredentialsFile {
+            storeFile null
+            storePassword ''
+            keyAlias ''
+            keyPassword ''
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        releaseStoredCredentials {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // specify the keystore configuration
+            signingConfig signingConfigs.releaseStoredCredentials
+        }
+        releaseConsolePrompt {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // specify the keystore configuration
+            signingConfig signingConfigs.releaseConsolePrompt
+        }
+        releaseExternalCredentials {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // specify the keystore configuration
+            signingConfig signingConfigs.releaseExternalCredentialsFile
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // add a debug suffix to applicationId
+            applicationIdSuffix '.debug'
+        }
+    }
+
+    productFlavors {
+
+        flavor1 {
+            manifestPlaceholders = [label: "flavor1"]
+        }
+        flavor2 {
+            manifestPlaceholders = [label: "flavor2"]
+        }
+        flavor3 {
+            manifestPlaceholders = [label: "flavor3"]
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
+}
