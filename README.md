@@ -9,6 +9,44 @@ Basic configuration
 # Exercise 2
 SignOptions and Build Types
 
+##Sign application with stored credentials##
+**Using the releaseStoredCredentials build type, you will be able to build and sign the application using the credentials stored directly in build.gradle**
+### Exercise:
+ Read the code and build the application using the android studio terminal
+ > ./gradlew assembleReleaseStoredCredentials
+
+##Sign application using command prompt##
+**Using the releaseConsolePrompt build type, you will be able to build and sign the application using the credentials read from a standard console prompt**
+### Exercise:
+ Using taskGraph to execute the prompt only for the right build type, ask the user to input their credentials and use the values to sign the apk
+
+```groovy
+gradle.taskGraph.whenReady { taskGraph ->
+         // Only execute when we are trying to assemble a release build with command prompt
+         if (taskGraph.hasTask(':app:assembleReleaseConsolePrompt')) {
+             def password = ''
+             def alias = ''
+             def aliasPassword = ''
+
+             // gradle will ask us for credentials
+             // System.console() can be null
+             def console = System.console()
+             if (console != null) {
+                 // readPassword returns a char[] so we need to wrap it into a string, because that's
+                 // most likely what you need
+                 password = new String(console.readPassword("\n\$ Enter keystore password: "))
+                 alias = new String(console.readLine("\n\$ Enter key alias: "))
+                 aliasPassword = new String(console.readPassword("\n\$ Enter key password: "))
+             }
+
+             // set the captured credentials to the signingConfig
+             signingConfigs.releaseConsolePrompt.storePassword = password
+             signingConfigs.releaseConsolePrompt.keyAlias = alias
+             signingConfigs.releaseConsolePrompt.keyPassword = aliasPassword
+         }
+}
+```
+
 # Exercise 3
 Flavors
 
