@@ -62,8 +62,7 @@ gradle.taskGraph.whenReady { taskGraph ->
             //    keystore.alias=demo
             //    keystore.aliasPassword=demo1234
             def credentialsFile = '/path/to/file'
-            if (project.hasProperty("GradleDemo.properties")
-                    && new File(credentialsFile).exists()) {
+            if (new File(credentialsFile).exists()) {
 
                 Properties props = new Properties()
                 props.load(new FileInputStream(file(credentialsFile)))
