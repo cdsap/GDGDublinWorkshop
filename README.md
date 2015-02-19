@@ -46,6 +46,37 @@ gradle.taskGraph.whenReady { taskGraph ->
          }
 }
 ```
+##Sign application using credentials stored in an external file##
+**Using the releaseExternalCredentials build type, you will be able to build and sign the application using the credentials read from an external file**
+### Exercise:
+ Using taskGraph to read the file only for the right build type, extract the credentials from an external file and use them to sign the apk
+ 
+ ```groovy
+ gradle.taskGraph.whenReady { taskGraph ->
+        // Only execute when we are trying to assemble a release build with external credentials file
+        if (taskGraph.hasTask(':app:releaseExternalCredentials')) {
+            // extract credentials from a file outside the project
+            // file structure:
+            //    keystore=/path/to/keystore
+            //    keystore.password=demo1234
+            //    keystore.alias=demo
+            //    keystore.aliasPassword=demo1234
+            def credentialsFile = '/path/to/file'
+            if (project.hasProperty("GradleDemo.properties")
+                    && new File(credentialsFile).exists()) {
+
+                Properties props = new Properties()
+                props.load(new FileInputStream(file(credentialsFile)))
+
+                signingConfigs.releaseExternalCredentialsFile.storeFile = file(props['keystore'])
+                signingConfigs.releaseExternalCredentialsFile.storePassword = props['password']
+                signingConfigs.releaseExternalCredentialsFile.keyAlias = file(props['alias'])
+                signingConfigs.releaseExternalCredentialsFile.keyPassword = file(props['aliasPassword'])
+
+            }
+        }
+ }
+ ```
 
 # Exercise 3
 Flavors
