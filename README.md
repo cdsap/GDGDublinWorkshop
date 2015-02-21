@@ -4,7 +4,31 @@ Repository for the Workshop on GDG Dublin 24/02/2015
 
 
 # Exercise 1
-Basic configuration
+Basic configuration of gradle android project
+
+```groovy
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile project(':lib')
+}
+```
 
 # Exercise 2
 SignOptions and Build Types

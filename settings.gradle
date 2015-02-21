@@ -1,1 +1,1 @@
-include ':exercise2', ':exercise3', ':exercise4', ':exercise1', ':lib', ':exercise5', ':exercise6'
+include ':exercise2', ':exercise3', ':exercise4', ':exercise1', ':lib', ':exercise5', ':exercise6', ':plugin'
