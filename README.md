@@ -109,7 +109,8 @@ gradle.taskGraph.whenReady { taskGraph ->
 Flavors
 
 ```groovy
-productFlavors {
+
+    productFlavors {
 
         flavor1 {
             applicationId "com.gdgdublin.exercise2flavor1"
@@ -133,27 +134,28 @@ productFlavors {
 Build a custom task to rename apk name.
 
 ```groovy
-android.applicationVariants.all { variant ->
-    variant.outputs.each { output ->
-        def outputFile = output.outputFile
-        if (outputFile != null && outputFile.name.endsWith('.apk')) {
-            def fileName = outputFile.name.replace(".apk", "-" + getDate() + ".apk")
-            output.outputFile = new File(outputFile.parent, fileName)
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = outputFile.name.replace(".apk", "-" + getDate() + ".apk")
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
         }
     }
-}
 ```groovy
 
 # Exercise 5
 Build a custom plugin to rename apk name.
 
 ```groovy
- renamingOptions {
-    outputOptions {
-        nameFormat getDate() + '-$appName-$buildType-$versionName'
-    }
 
-}
+    renamingOptions {
+        outputOptions {
+            nameFormat getDate() + '-$appName-$buildType-$versionName'
+        }
+    }
 ```groovy
 
 ### Exercise:
