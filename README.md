@@ -124,7 +124,7 @@ productFlavors {
             manifestPlaceholders = [label: "flavor3"]
         }
     }
-```groovy
+```
 
 ### Exercise:
  Define BuildConfig values in your flavors.
