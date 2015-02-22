@@ -125,7 +125,7 @@ Flavors
             manifestPlaceholders = [label: "flavor3"]
         }
     }
-```groovy
+```
 
 ### Exercise:
  Define BuildConfig values in your flavors.
@@ -144,6 +144,7 @@ Build a custom task to rename apk name.
             }
         }
     }
+
 ```groovy
 
 # Exercise 5
@@ -161,9 +162,6 @@ Build a custom plugin to rename apk name.
 ### Exercise:
 Deploy and import the plugin in your module
 
-
-# Exercise 6
-Testing
 
 
 
