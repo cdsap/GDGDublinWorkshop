@@ -3,6 +3,8 @@
 Repository for the Workshop on GDG Dublin 24/02/2015
 
 
+https://speakerdeck.com/cdsap/in-gradle-we-trust
+
 # Exercise 1
 Basic configuration of gradle android project
 
@@ -105,10 +107,36 @@ gradle.taskGraph.whenReady { taskGraph ->
 Flavors
 
 # Exercise 4
-Tasks
+Build a custom task to rename apk name.
+
+```groovy
+
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        def outputFile = output.outputFile
+        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+            def fileName = outputFile.name.replace(".apk", "-" + getDate() + ".apk")
+            output.outputFile = new File(outputFile.parent, fileName)
+        }
+    }
+}
+
+```groovy
+
 
 # Exercise 5
-Plugins
+Build a custom plugin to rename apk name.
+
+```groovy
+
+ renamingOptions {
+    outputOptions {
+        nameFormat getDate() + '-$appName-$buildType-$versionName'
+    }
+
+}
+
+```groovy
 
 # Exercise 6
 Testing

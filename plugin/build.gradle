@@ -2,6 +2,8 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'maven'
 
+version = "1.5"
+group = "com.gdgdublin"
 
 uploadArchives {
     repositories {
@@ -13,5 +15,7 @@ uploadArchives {
 
 
 dependencies {
+    compile gradleApi()
+    compile localGroovy()
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

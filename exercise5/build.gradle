@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.gdgdublin.rename-plugin'
 
 android {
     compileSdkVersion 21
@@ -16,6 +17,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+renamingOptions {
+    outputOptions {
+        nameFormat getDate() + '-$appName-$buildType-$versionName'
+    }
+
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmmss')
+    return formattedDate
 }
 
 dependencies {
