@@ -142,7 +142,7 @@ android.applicationVariants.all { variant ->
         }
     }
 }
-```groovy
+```
 
 # Exercise 5
 Build a custom plugin to rename apk name.
@@ -154,7 +154,7 @@ Build a custom plugin to rename apk name.
     }
 
 }
-```groovy
+```
 
 ### Exercise:
 Deploy and import the plugin in your module
