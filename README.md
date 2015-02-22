@@ -31,6 +31,8 @@ dependencies {
     compile project(':lib')
 }
 ```
+### Exercise:
+Define and use dependencies in your project and lib.
 
 # Exercise 2
 SignOptions and Build Types
@@ -106,11 +108,31 @@ gradle.taskGraph.whenReady { taskGraph ->
 # Exercise 3
 Flavors
 
+```groovy
+productFlavors {
+
+        flavor1 {
+            applicationId "com.gdgdublin.exercise2flavor1"
+            manifestPlaceholders = [label: "flavor1"]
+        }
+        flavor2 {
+            applicationId "com.gdgdublin.exercise2flavor2"
+            manifestPlaceholders = [label: "flavor2"]
+        }
+        flavor3 {
+            applicationId "com.gdgdublin.exercise2flavor3"
+            manifestPlaceholders = [label: "flavor3"]
+        }
+    }
+```groovy
+
+### Exercise:
+ Define BuildConfig values in your flavors.
+
 # Exercise 4
 Build a custom task to rename apk name.
 
 ```groovy
-
 android.applicationVariants.all { variant ->
     variant.outputs.each { output ->
         def outputFile = output.outputFile
@@ -120,23 +142,23 @@ android.applicationVariants.all { variant ->
         }
     }
 }
-
 ```groovy
-
 
 # Exercise 5
 Build a custom plugin to rename apk name.
 
 ```groovy
-
  renamingOptions {
     outputOptions {
         nameFormat getDate() + '-$appName-$buildType-$versionName'
     }
 
 }
-
 ```groovy
+
+### Exercise:
+Deploy and import the plugin in your module
+
 
 # Exercise 6
 Testing
