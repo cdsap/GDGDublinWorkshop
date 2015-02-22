@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.gdgdublin.rename-plugin'
 
 android {
     compileSdkVersion 21
@@ -19,12 +18,6 @@ android {
     }
 }
 
-renamingOptions {
-    outputOptions {
-        nameFormat getDate() + '-$appName-$buildType-$versionName'
-    }
-
-}
 
 def getDate() {
     def date = new Date()
