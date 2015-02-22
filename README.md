@@ -145,7 +145,7 @@ Build a custom task to rename apk name.
         }
     }
 
-```groovy
+```
 
 # Exercise 5
 Build a custom plugin to rename apk name.
@@ -157,7 +157,7 @@ Build a custom plugin to rename apk name.
             nameFormat getDate() + '-$appName-$buildType-$versionName'
         }
     }
-```groovy
+```
 
 ### Exercise:
 Deploy and import the plugin in your module
