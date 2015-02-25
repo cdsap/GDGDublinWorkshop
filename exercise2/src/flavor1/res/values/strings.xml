@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Exercise2</string>
 
+    <string name="hello_world">Hello world from Flavor1!</string>
     <string name="action_settings">Settings</string>
 </resources>

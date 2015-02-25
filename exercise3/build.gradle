@@ -35,14 +35,12 @@ android {
             applicationId "com.gdgdublin.exercise2flavor2"
             manifestPlaceholders = [label: "flavor2"]
         }
-        flavor3 {
-            applicationId "com.gdgdublin.exercise2flavor3"
-            manifestPlaceholders = [label: "flavor3"]
-        }
+
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
+
 }

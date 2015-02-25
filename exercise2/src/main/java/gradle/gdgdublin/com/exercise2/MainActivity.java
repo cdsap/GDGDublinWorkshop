@@ -1,9 +1,13 @@
 package gradle.gdgdublin.com.exercise2;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import gradle.gdgdublin.com.Foo;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +16,12 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Foo foo = new Foo(2);
+
+        ((TextView) findViewById(R.id.tv)).setText("---->" + foo.getmValue());
+        if (BuildConfig.DEBUG) {
+            Log.e("classs", "log ");
+        }
     }
 
 

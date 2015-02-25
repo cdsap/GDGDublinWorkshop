@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GDGDublinWorkshop.iml" filepath="$PROJECT_DIR$/GDGDublinWorkshop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise1/exercise1.iml" filepath="$PROJECT_DIR$/exercise1/exercise1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise2/exercise2.iml" filepath="$PROJECT_DIR$/exercise2/exercise2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise3/exercise3.iml" filepath="$PROJECT_DIR$/exercise3/exercise3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise4/exercise4.iml" filepath="$PROJECT_DIR$/exercise4/exercise4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise5/exercise5.iml" filepath="$PROJECT_DIR$/exercise5/exercise5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugin/plugin.iml" filepath="$PROJECT_DIR$/plugin/plugin.iml" />
+    </modules>
+  </component>
+</project>
+
